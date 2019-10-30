@@ -4,7 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="beans"
-		class="com.livingoncodes.spring.springtutorial04.Patient">
+	<bean id="patient"
+		class="com.livingoncodes.spring.springtutorial04.Patient"
+		scope="prototype" init-method="onCreate">
+		<constructor-arg name="id" value="5"></constructor-arg>
+		<constructor-arg name="name" value="Rocky"></constructor-arg>
+		<property name="nationalId" value="1234556"></property>
+		<property name="address" ref="address"></property>
+	</bean>
+
+	<bean id="address"
+		class="com.livingoncodes.spring.springtutorial04.Address">
+		<constructor-arg value="Lake shore" index="0"></constructor-arg>
+		<constructor-arg value="1230" index="1"></constructor-arg>
 	</bean>
 </beans>
